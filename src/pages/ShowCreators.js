@@ -1,26 +1,36 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import Card from "../components/Card/index.jsx";
+import { supabase, showAllCreators } from "../client.js";
 const ShowCreators = () => {
+  const [creators, setCreators] = useState([]);
+  useEffect(() => {
+    const fetchCreators = async () => {
+      const creators = await showAllCreators();
+      if (!Array.isArray(creators)) {
+        console.error("Expected an array of creators, but got:", creators);
+        return;
+      }
+      setCreators(creators);
+    };
+
+    fetchCreators();
+  }, []);
+
   return (
-    <div class="container">
-      <article>
-        <div role="group">
-          <header>Creator Name</header>
-          <div role="group">
-            <a href="www.google.com">View Profile</a>
-            <a href="www.google.com">Edit Profile</a>
-          </div>
-        </div>
-        <div role="group">
-          <a href="www.google.com">Youtube</a>
-          <a href="www.google.com">Instagram</a>
-        </div>
-        <footer>
-          <p>Description</p>
-        </footer>
-      </article>
+    <div>
+      {creators.map((creator) => (
+        <Card
+          key={creator.id}
+          creatorId={creator.id}
+          creatorName={creator.name}
+          creatorBio={creator.description}
+          url={creator.url}
+          creatorImage={creator.imageURL}
+        />
+      ))}
     </div>
   );
+  return <div>{/* <Cards /> */}</div>;
 };
 
 export default ShowCreators;

@@ -1,19 +1,30 @@
 import React from "react";
+import Form from "../components/Form/index.jsx";
+import { addItem, supabase } from "../client.js";
+import { useNavigate } from "react-router-dom";
 
-const AddCreators = () => {
+const AddCreator = () => {
+  const navigate = useNavigate();
+  const handleSubmit = (formData) => {
+    console.log(formData);
+    addItem(formData)
+      .then((data) => {
+        navigate("/");
+        console.log("Creator added successfully");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
-    <div class="container">
-      <h1>Creatorverse</h1>
-      <div class="grid">
-        <div>
-          <input type="button" value="View All Creators" />
-        </div>
-        <div>
-          <input type="button" value="Add a Creators" />
-        </div>
-      </div>
+    <div>
+      <Form
+        onSubmit={handleSubmit}
+        editMode={false}
+        onDelete={handleSubmit}
+      ></Form>
     </div>
   );
 };
 
-export default AddCreators;
+export default AddCreator;

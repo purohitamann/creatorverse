@@ -1,12 +1,29 @@
 import React from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { supabase, deleteCreator } from "../../client.js";
+const Form = ({ onSubmit, editMode, onDelete, creator }) => {
+  const navigate = useNavigate();
+  const creatorData = creator || {};
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    onSubmit(Object.fromEntries(formData.entries()));
+    navigate("/");
+  };
 
-const Form = () => {
+  const handleDelete = (event) => {
+    event.preventDefault();
+    onDelete(creatorData.id);
+    navigate("/");
+  };
+
   return (
-    <form class="container">
+    <form class="container" onSubmit={handleSubmit}>
       <fieldset>
         <label>
           Name
-          <input name="name" />
+          <input name="name" defaultValue={creatorData?.name} />
         </label>
         <label aria-label="Image" aria-describedby="image-helper">
           Image {<br />}
@@ -18,7 +35,11 @@ const Form = () => {
           </small>
         </label>
 
-        <input type="url" name="imageUrl" />
+        <input
+          type="url"
+          name="imageUrl"
+          defaultValue={creatorData?.imageURL}
+        />
 
         <label>
           Description{<br />}
@@ -30,13 +51,17 @@ const Form = () => {
           </small>
         </label>
 
-        <input type="text" name="description" />
+        <input
+          type="text"
+          name="description"
+          defaultValue={creatorData?.description}
+        />
       </fieldset>
       <legend>Social Media Links</legend>
       <small>
         <em>Provide at least one of the creator's social media links</em>
       </small>
-      <div className="social">
+      <div class="social">
         <label>
           Youtube{<br />}
           <small>
@@ -44,9 +69,13 @@ const Form = () => {
           </small>
         </label>
 
-        <input type="text" name="youtube" />
+        <input
+          type="text"
+          name="youtube"
+          defaultValue={creatorData?.url?.[0]}
+        />
       </div>
-      <div className="social">
+      <div class="social">
         <label>
           Twitter{<br />}{" "}
           <small>
@@ -54,9 +83,13 @@ const Form = () => {
           </small>
         </label>
 
-        <input type="text" name="youtube" />
+        <input
+          type="text"
+          name="twitter"
+          defaultValue={creatorData?.url?.[1]}
+        />
       </div>
-      <div className="social">
+      <div class="social">
         <label>
           Instagram{<br />}
           <small>
@@ -64,10 +97,19 @@ const Form = () => {
           </small>
         </label>
 
-        <input type="text" name="youtube" />
-      </div>
+        <input
+          type="text"
+          name="instagram"
+          defaultValue={creatorData?.url?.[2]}
+        />
+        <input type="submit" onClick={handleSubmit} value="SUBMIT" />
 
-      <input type="submit" value="Subscribe" />
+        {editMode && (
+          <button onClick={handleSubmit} type="button">
+            DELETE
+          </button>
+        )}
+      </div>
     </form>
   );
 };
