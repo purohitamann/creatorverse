@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+Developed by Aman Hiran Purohit (@purohitamann)
+Time spent: **👉🏿 18** hours
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Video Walkthrough
 
-## Available Scripts
+Here's a walkthrough of implemented required features:
 
-In the project directory, you can run:
+👉🏿<img src='../demo.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-### `npm start`
+GIF created with ... 👉🏿 GIPHY
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Creatorverse
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Creatorverse is a dynamic web application built to showcase and manage a collection of your favorite content creators, including Twitch streamers, YouTube channels, Instagram personalities, TikTok accounts, and more. This app allows users to create, read, update, and delete (CRUD) content creators, offering a comprehensive platform for organizing and sharing creators worth following.
 
-### `npm test`
+## Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Frontend Framework**: React
+- **Routing**: React Router
+- **Database**: Supabase
+- **API Calls**: Axios or Fetch with async/await pattern
+- **Styling**: Optional usage of PicoCSS for enhanced styling
+- **State Management**: React Hooks (useState, useEffect)
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Core Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Logical Component Structure**: The app is built using a modular component structure in React, ensuring maintainability and scalability.
+2. **Home Page Display**: Displays at least five content creators with the following details:
+   - Name
+   - URL (link to their channel or page)
+   - Description of their content
+3. **Content Creator Details Page**: Each content creator has a unique URL, leading to a details page that includes their name, URL, and description.
+4. **CRUD Operations**:
+   - **Create**: Users can add new content creators by entering their name, URL, description, and optionally an image URL.
+   - **Read**: View a list of all content creators on the homepage and detailed information on individual pages.
+   - **Update**: Users can edit a content creator's name, URL, and description.
+   - **Delete**: Users can delete a content creator from the list.
+5. **Async API Calls**: Utilizes async/await pattern for API calls to the Supabase backend to handle data storage and retrieval efficiently.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Stretch Features
 
-### `npm run eject`
+1. **PicoCSS Styling**: styled HTML elements using PicoCSS for a modern and clean user interface.
+2. **Creative Content Display**: Content creator items can be displayed in a card format instead of a list for a more engaging user experience.
+3. **Image Display**: Shows an image of each content creator on their content creator card.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## How to Use
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 1. Clone the repository
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+git clone https://github.com/yourusername/creatorverse.git
+cd creatorverse
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## License
 
-## Learn More
+Copyright [👉🏿 2024] [👉🏿 Aman Hiran Purohit]
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+> http://www.apache.org/licenses/LICENSE-2.0
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+```
