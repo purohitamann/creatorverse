@@ -5,7 +5,7 @@ Time spent: **👉🏿 18** hours
 
 Here's a walkthrough of implemented required features:
 
-👉🏿<img src='../demo.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+👉🏿<img src='demo.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with ... 👉🏿 GIPHY
 
