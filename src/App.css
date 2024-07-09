@@ -1,0 +1,27 @@
+.headerContainer h1 {
+  font-family: Sono;
+  font-size: 8vw;
+  text-transform: uppercase;
+  line-height: 1em;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
+}
+.headerContainer {
+  box-shadow: 0px 0px 5px 0px #e6e6e6;
+  margin-bottom: 5%;
+  background-color: rgb(0, 6, 18);
+}
+.headerContainer .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  font-family: Poppins;
+  font-weight: 700;
+  color: white;
+  font-size: 20px;
+  letter-spacing: 1.3px;
+  height: 3em;
+  text-transform: uppercase;
+  cursor: pointer;
+}

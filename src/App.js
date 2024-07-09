@@ -4,7 +4,8 @@ import "./components/PicoDemo/demoPico.scss";
 import Form from "./components/Form/index.jsx";
 // import ShowCreators from "./pages/ShowCreators.js";
 import AddCreators from "./pages/AddCreator.js";
-
+import "./App.css";
+import bg from "./assets/CreatorverseBg.jpg";
 import { BrowserRouter as Router, useRoutes } from "react-router-dom";
 import ShowCreators from "./pages/ShowCreators.js";
 import ViewCreator from "./pages/ViewCreator.js";
@@ -22,24 +23,42 @@ const AppRoutes = () => {
   return routes;
 };
 const App = () => {
+  const header = {
+    color: "#017FC0",
+    backgroundImage: `linear-gradient(rgba(1, 1, 1, 0.1), rgba(1, 1, 1, 0.1)), url(${bg})`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+
+    height: "80vh",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+  };
   return (
     <Router>
-      <div class="container">
+      <div class="container-fluid headerContainer" style={header}>
         <h1>Creatorverse</h1>
         <div class="grid">
-          <div>
-            <a href="/" type="button">
-              View All Creators
-            </a>
-          </div>
-          <div>
-            <a href="/new" type="button">
-              Add a Creators
-            </a>
-          </div>
+          <nav>
+            <ul>
+              <li>
+                <a href="/" type="button" class="button">
+                  View All Creators
+                </a>
+              </li>
+              <li>
+                <a href="/new" type="button" class="button">
+                  Add a Creators
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
-      <div className="App">
+      <div class="App">
         <AppRoutes />
       </div>
     </Router>

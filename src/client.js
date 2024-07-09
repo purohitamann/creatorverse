@@ -64,6 +64,12 @@ export async function updateCreator(id, item) {
     })
     .eq("id", id)
     .select();
+
+  if (error) {
+    console.error("Error updating creator: ", error);
+    return null;
+  }
+  return data;
 }
 
 export async function deleteCreator(id) {

@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Form from "../components/Form/index.jsx";
 import { useParams, useNavigate } from "react-router-dom";
-import { supabase, getCreatorById, deleteCreator, addItem } from "../client.js";
+import {
+  supabase,
+  getCreatorById,
+  deleteCreator,
+  addItem,
+  updateCreator,
+} from "../client.js";
 
 const EditCreator = ({ editMode }) => {
   const navigate = useNavigate();
@@ -12,19 +18,18 @@ const EditCreator = ({ editMode }) => {
       setCreator(data);
     });
   });
-  const handleSubmit = (formData, event) => {
-    event.preventDefault();
+  const handleSubmit = (formData) => {
     console.log(formData);
-    addItem(formData)
+    updateCreator(creatorId, formData)
       .then((data) => {
         navigate("/");
-        console.log("Creator added successfully");
+        console.log("Creator updated successfully");
       })
       .catch((error) => {
         console.log(error);
       });
   };
-  const handleDelete = (formData, event) => {
+  const handleDelete = (event) => {
     event.preventDefault();
     const { data, error } = deleteCreator(creatorId);
     if (error) {
@@ -34,6 +39,7 @@ const EditCreator = ({ editMode }) => {
       navigate("/");
     }
   };
+
   return (
     <div>
       <Form

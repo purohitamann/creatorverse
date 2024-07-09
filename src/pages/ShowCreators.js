@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Card from "../components/Card/index.jsx";
 import { supabase, showAllCreators } from "../client.js";
+import "./ShowCreators.css";
+
 const ShowCreators = () => {
   const [creators, setCreators] = useState([]);
   useEffect(() => {
@@ -17,18 +19,20 @@ const ShowCreators = () => {
   }, []);
 
   return (
-    <div>
+    <section className="ShowCreators">
       {creators.map((creator) => (
-        <Card
-          key={creator.id}
-          creatorId={creator.id}
-          creatorName={creator.name}
-          creatorBio={creator.description}
-          url={creator.url}
-          creatorImage={creator.imageURL}
-        />
+        <div class="card">
+          <Card
+            key={creator.id}
+            creatorId={creator.id}
+            creatorName={creator.name}
+            creatorBio={creator.description}
+            url={creator.url}
+            creatorImage={creator.imageURL}
+          />
+        </div>
       ))}
-    </div>
+    </section>
   );
   return <div>{/* <Cards /> */}</div>;
 };

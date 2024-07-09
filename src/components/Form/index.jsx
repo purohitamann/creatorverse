@@ -1,21 +1,17 @@
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { supabase, deleteCreator } from "../../client.js";
+
 const Form = ({ onSubmit, editMode, onDelete, creator }) => {
-  const navigate = useNavigate();
   const creatorData = creator || {};
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.currentTarget;
     const formData = new FormData(form);
     onSubmit(Object.fromEntries(formData.entries()));
-    navigate("/");
   };
 
   const handleDelete = (event) => {
     event.preventDefault();
-    onDelete(creatorData.id);
-    navigate("/");
+    onDelete(event);
   };
 
   return (
@@ -54,7 +50,9 @@ const Form = ({ onSubmit, editMode, onDelete, creator }) => {
         <input
           type="text"
           name="description"
-          defaultValue={creatorData?.description}
+          defaultValue={
+            creatorData?.description ? creatorData?.description : "   "
+          }
         />
       </fieldset>
       <legend>Social Media Links</legend>
@@ -102,10 +100,10 @@ const Form = ({ onSubmit, editMode, onDelete, creator }) => {
           name="instagram"
           defaultValue={creatorData?.url?.[2]}
         />
-        <input type="submit" onClick={handleSubmit} value="SUBMIT" />
+        <button type="submit">SUBMIT</button>
 
         {editMode && (
-          <button onClick={handleSubmit} type="button">
+          <button onClick={handleDelete} type="button">
             DELETE
           </button>
         )}
