@@ -1,0 +1,15 @@
+article h1 {
+  color: rgb(81, 133, 180);
+  text-transform: uppercase;
+}
+article {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+article .loader {
+  width: 100px;
+  height: 100px;
+  font-size: 3rem;
+}

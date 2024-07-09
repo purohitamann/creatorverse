@@ -18,7 +18,17 @@ label {
 .delete {
   background-color: rgb(255, 96, 92);
 }
-
+#description {
+  vertical-align: top;
+  background-color: white;
+  color: black;
+  font-weight: 100;
+}
 .button {
   font-weight: 700;
+}
+.form-container input {
+  color: black;
+  font-weight: 100;
+  padding: 20px;
 }

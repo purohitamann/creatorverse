@@ -1,7 +1,10 @@
 import React from "react";
 import "./index.css";
+import DeleteDialog from "../DeleteDialog/index.jsx";
+import { useState } from "react";
 const Form = ({ onSubmit, editMode, onDelete, creator }) => {
   const creatorData = creator || {};
+  const [deleteDialog, setDeleteDialog] = useState(false);
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.currentTarget;
@@ -11,7 +14,8 @@ const Form = ({ onSubmit, editMode, onDelete, creator }) => {
 
   const handleDelete = (event) => {
     event.preventDefault();
-    onDelete(event);
+    // onDelete(event);
+    setDeleteDialog(!deleteDialog);
   };
 
   return (
@@ -48,9 +52,9 @@ const Form = ({ onSubmit, editMode, onDelete, creator }) => {
             </small>
           </label>
 
-          <input
-            type="text"
+          <textarea
             name="description"
+            id="description"
             defaultValue={
               creatorData?.description ? creatorData?.description : "   "
             }
@@ -114,6 +118,13 @@ const Form = ({ onSubmit, editMode, onDelete, creator }) => {
               >
                 DELETE
               </button>
+            )}
+
+            {deleteDialog && (
+              <DeleteDialog
+                creatorName={creatorData?.name}
+                creatorId={creatorData?.id}
+              />
             )}
           </section>
         </div>

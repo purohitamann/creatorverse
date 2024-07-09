@@ -11,6 +11,7 @@ import ShowCreators from "./pages/ShowCreators.js";
 import ViewCreator from "./pages/ViewCreator.js";
 import EditCreator from "./pages/EditCreator.js";
 import AddCreator from "./pages/AddCreator.js";
+import DeleteDialog from "./components/DeleteDialog/index.jsx";
 
 const AppRoutes = () => {
   const routes = useRoutes([
@@ -58,6 +59,7 @@ const App = () => {
           </nav>
         </div>
       </div>
+
       <div class="App">
         <AppRoutes />
       </div>

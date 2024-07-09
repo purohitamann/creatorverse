@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import Card from "../components/Card/index.jsx";
 import { supabase, showAllCreators } from "../client.js";
 import "./ShowCreators.css";
+import Loading from "../components/Loading/index.jsx";
 
 const ShowCreators = () => {
   const [creators, setCreators] = useState([]);
+  const [loading, setLoading] = React.useState(true);
   useEffect(() => {
     const fetchCreators = async () => {
       const creators = await showAllCreators();
@@ -13,6 +15,7 @@ const ShowCreators = () => {
         return;
       }
       setCreators(creators);
+      setLoading(false);
     };
 
     fetchCreators();
@@ -20,6 +23,7 @@ const ShowCreators = () => {
 
   return (
     <section className="ShowCreators">
+      {loading && <Loading />}
       {creators.map((creator) => (
         <div class="card">
           <Card
@@ -34,7 +38,6 @@ const ShowCreators = () => {
       ))}
     </section>
   );
-  return <div>{/* <Cards /> */}</div>;
 };
 
 export default ShowCreators;
