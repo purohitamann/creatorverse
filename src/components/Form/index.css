@@ -1,0 +1,24 @@
+.form-container {
+  padding: 0px 430px;
+  color: white;
+}
+input {
+  background-color: white;
+}
+
+label {
+  color: white;
+}
+
+.btn-div {
+  padding: 20px;
+  font-weight: 700;
+  font-size: 20px;
+}
+.delete {
+  background-color: rgb(255, 96, 92);
+}
+
+.button {
+  font-weight: 700;
+}
