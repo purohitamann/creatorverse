@@ -5,7 +5,7 @@ Time spent: **👉🏿 18** hours
 
 Here's a walkthrough of implemented required features:
 
-👉🏿<img src='demo.gif' title='Video Walkthrough' width='800px' height="600px" alt='Video Walkthrough' />
+👉🏿<img src='demo.gif' title='Video Walkthrough' width='800px' height="400px" alt='Video Walkthrough' />
 
 
 # Creatorverse
